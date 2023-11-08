@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #EDAEF9;
+}
+
+header {
+  text-align: center;
+  background-color: #ed4bc7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  header nav {
+    margin-top: 10px;
+  }
+  main {
+    flex-direction: column;
+  }
+}
+@media (max-width:576px) {
+ .rental{
+  width: 100%;
+  overflow-y: auto;
+ } 
+}
+
+.listings {
+  flex: 1 1 calc(100% - 320px);
+  display: flex;
+	flex-wrap: wrap;
+	padding: 20px;
+}
+
+.rental {
+  background-color: #ec6cf8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 10px;
+  width: calc(33.33% - 10px);
+}
+
+.img
+{
+  width: 80%;
+  height: 60%;
+  object-fit: cover;
+  display: flex;
+  position: relative;
+  margin: 10px;
+  background-color: rgb(10, 10, 10);
+  z-index: 1;
+}
+.rental h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.rental p {
+  margin-bottom: 10px;
+}
+.rental a {
+  background-color: #333;
+  color: #fff;
+  display: block;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.rental a:hover {
+  background-color: #666;
+}
+
+.advertisement {
+  float: right;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 10px;
+  width: calc(33.33% - 10px);
+  bottom: 0;
+}
+
+.slideshow{
+  width: 80%;
+  height: 600%;
+  display: flex;
+  animation: fade 5s infinite;
+}
+
+.slide{
+  width: 80%;
+  height: 60%;
+  object-fit: cover;
+  display: flex;
+  position: relative;
+  margin: 10px;
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity:  0;
+  }
+  25%, 75%{
+    opacity: 1;
+  }
+}
+
+.description {
+  float: left;
+  width: 50%;
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  bottom: 0%;
+}
+    </style>
+</head>
+<body>
+<header>
+<h1>Welcome to KyU Rentals Connect!</h1>
+<p>Your one-stop shop for all your rental needs.</p>
+</header>
+
+<main>
+<h2 text-align="center">Services</h2>
+<div class="listings">
+  <div class="rental">
+    <img src="House Four.webp" alt="Service One" class="img">
+    <h3>Service One</h3>
+    <p>Description for Service One</p>
+    <a href="C:\Users\Remison\Desktop\HTML\dahlias rental front end.html" class="details-btn">Access</a>
+  </div>
+  <div class="rental">
+    <img src="House One.webp" alt="Service Two" class="img">
+    <h3>Service Two</h3>
+    <p>Description for Service Two</p>
+    <a href="#" class="details-btn">Access</a>
+  </div>
+  <div class="rental">
+    <img src="House Four.webp" alt="Service Three" class="img">
+    <h3>Service Three</h3>
+    <p>Description for Service Three</p>
+    <a href="#" class="details-btn">Access</a>
+  </div>
+</div>
+
+<section class="advertisement">
+  <div class="slideshow">
+    <img class="slide" src="#" alt="This is the first advert">
+    <img class="slide" src="#" alt="This is the second advert">
+    <img class="slide" src="#" alt="This is the third advert">
+  </div>
+</section>
+
+<section class="description">
+<h2>About Us</h2>
+<p>We are a leading provider of rental services, offering a wide variety of Hostels and home essentials to meet the needs of our customers. We are committed to providing excellent customer service and competitive prices.</p>
+</section>
+</main>
+<script>
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide=0;
+   function showSlide(slideIndex){
+    if (slideIndex>= slides.length){
+      currentSlide=0;
+    }
+    else if (slideIndex<0) {
+      currentSlide=slides.length-1;
+    }
+    slides.forEach((slide) => {
+      slide.style.display="none";
+    });
+    slides[currentSlide].style.display="block";
+   }
+   function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+   }
+   function prevSlide() {
+    currentSlide--;
+   }
+   showSlide(currentSlide);
+   setInterval(nextSlide, 5000);
+</script>
+
+</body>
+</html>
